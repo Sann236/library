@@ -22,7 +22,7 @@
                             <th>Issue Date</th>
                             <th>Return Date</th>
                             <th>Status</th>
-                            <th>Edit</th>
+                            <th>Return</th>
                             <th>Delete</th>
                         </thead>
                         <tbody>
@@ -37,13 +37,13 @@
                                     <td>{{ $book->return_date->format('d M, Y') }}</td>
                                     <td>
                                         @if ($book->issue_status == 'Y')
-                                            <span class='badge badge-success'>Returned</span>
+                                            <span class='badge bg-success'>Returned</span>
                                         @else
-                                            <span class='badge badge-danger'>Issued</span>
+                                            <span class='badge bg-danger'>Issued</span>
                                         @endif
                                     </td>
                                     <td class="edit">
-                                        <a href="{{ route('book_issue.edit', $book->id) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('book_issue.edit', $book->id) }}" class="btn btn-success">Return</a>
                                     </td>
                                     <td class="delete">
                                         <form action="{{ route('book_issue.destroy', $book) }}" method="post"
