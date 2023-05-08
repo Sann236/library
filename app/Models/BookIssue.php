@@ -9,6 +9,10 @@ class BookIssue extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'student_id', 'book_id', 'issue_status', 'return_day'
+    ];
+
 
 
     public function student()

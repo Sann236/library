@@ -23,6 +23,8 @@ class UpdateSettingsRequest extends FormRequest
     {
         return [
             //
+            'return_days' => 'required',
+            'fine' => 'required',
         ];
     }
 }

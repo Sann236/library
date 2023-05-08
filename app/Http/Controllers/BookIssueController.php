@@ -31,14 +31,22 @@ class BookIssueController extends Controller
     {
         $issue_date = date('Y-m-d');
         $return_date = date('Y-m-d', strtotime("+" . (Settings::latest()->first()->return_days) . " days"));
-        $data = BookIssue::create($request->validated() + [
-            'student_id' => $request->student_id,
-            'book_id' => $request->book_id,
-            'issue_date' => $issue_date,
-            'return_date' => $return_date,
-            'issue_status' => 'N',
-        ]);
+        // $data = BookIssue::create($request->validated() + [
+        //     'student_id' => $request->student_id,
+        //     'book_id' => $request->book_id,
+        //     'issue_date' => $issue_date,
+        //     'return_date' => 'hello',
+        //     'issue_status' => 'N',
+        // ]);
+        // $data->save();
+        $data = new BookIssue();
+        $data->student_id = $request->student_id;
+        $data->book_id = $request->book_id;
+        $data->issue_date = $issue_date;
+        $data->return_date = $return_date;
+        $data->issue_status = 'N';
         $data->save();
+
         $book = Book::find($request->book_id);
         $book->status = 'N';
         $book->save();

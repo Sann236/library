@@ -25,6 +25,8 @@ class StoreBookIssueRequest extends FormRequest
             //
             'student_id' => "required",
             'book_id' => "required",
+
+
         ];
     }
 }
