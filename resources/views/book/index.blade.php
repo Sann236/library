@@ -17,6 +17,7 @@
                     <table class="content-table">
                         <thead>
                             <th>S.No</th>
+                            <th>Image</th>
                             <th>Book Name</th>
                             <th>Category</th>
                             <th>Author</th>
@@ -29,6 +30,7 @@
                             @forelse ($books as $book)
                                 <tr>
                                     <td class="id">{{ $book->id }}</td>
+                                    <td><img src="storage/images/books/{{$book->image}}" width="50px" height="50px" alt = "book" /></td>
                                     <td>{{ $book->name }}</td>
                                     <td>{{ $book->category->name }}</td>
                                     <td>{{ $book->author->name }}</td>
@@ -53,7 +55,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="8">No Books Found</td>
+                                    <td colspan="9">No Books Found</td>
                                 </tr>
                             @endforelse
                         </tbody>

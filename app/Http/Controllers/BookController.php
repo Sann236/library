@@ -32,7 +32,7 @@ class BookController extends Controller
     public function store(StoreBookRequest $request)
     {
 
-        $path = 'public/image/books';
+        $path = 'public/images/books';
         $image = $request->file('image');
         $image_name = $image->getClientOriginalName();
         $image->storeAs($path, $image_name);
