@@ -17,7 +17,7 @@
                         <thead>
                             <th>S.No</th>
                             <th>Student Name</th>
-                            <th>Gender</th>
+                            
                             <th>Phone</th>
                             <th>Email</th>
                             <th>View</th>
@@ -29,7 +29,7 @@
                                 <tr>
                                     <td class="id">{{ $student->id }}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td class="text-capitalize">{{ $student->gender }}</td>
+                                    
                                     <td>{{ $student->phone }}</td>
                                     <td>{{ $student->email }}</td>
                                     <td class="view">
@@ -49,7 +49,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="8">No Students Found</td>
+                                    <td colspan="7">No Students Found</td>
                                 </tr>
                             @endforelse
                         </tbody>

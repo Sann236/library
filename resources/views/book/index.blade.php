@@ -30,7 +30,7 @@
                             @forelse ($books as $book)
                                 <tr>
                                     <td class="id">{{ $book->id }}</td>
-                                    <td><img src="storage/images/books/{{$book->image}}" width="50px" height="50px" alt = "book" /></td>
+                                    <td><img src="{{ asset('storage/images/books/' . $book->image) }}" width="50px" height="50px" alt = "book" /></td>
                                     <td>{{ $book->name }}</td>
                                     <td>{{ $book->category->name }}</td>
                                     <td>{{ $book->author->name }}</td>

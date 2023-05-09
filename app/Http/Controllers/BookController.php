@@ -8,7 +8,11 @@ use App\Models\Author;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Publisher;
+
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
@@ -68,11 +72,42 @@ class BookController extends Controller
     public function update(UpdateBookRequest $request, $id)
     {
         $book = Book::find($id);
-        $book->image = $request->image;
         $book->name = $request->name;
         $book->author_id = $request->author_id;
         $book->category_id = $request->category_id;
         $book->publisher_id = $request->publisher_id;
+
+        if ( $request->hasFile("image")) {
+            Storage::delete("public/images/books".$book->image);
+
+            $newName = uniqid()."_product.".$request->file("image")->extension();
+
+            $request->file("image")->storeAs("public/images/books", $newName);
+
+            $book->image = $newName;
+        }
+
+        $book->update();
+
+
+        // $book->name = $request->name;
+        // $book->author_id = $request->author_id;
+        // $book->category_id = $request->category_id;
+        // $book->publisher_id = $request->publisher_id;
+
+        // if ($request->hasFile('image')) {
+        //     $destination = 'public/images/books/' . $book->image;
+        //     if (File::exists($destination)) {
+        //         File::delete($destination);
+        //     }
+        //     $image = $request->file('image');
+        //     $image_name = $image->getClientOriginalName();
+        //     $image->storeAs('public/images/books', $image_name);
+        //     $book->image = $image_name;
+        // }
+
+        
+        
         $book->save();
         return redirect()->route('books');
     }

@@ -24,7 +24,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Address</label>
                             <input type="text" class="form-control" placeholder="Address" name="address"
                                 value="{{ old('address') }}" required>
@@ -65,7 +65,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Phone</label>
                             <input type="phone" class="form-control" placeholder="Phone" name="phone"

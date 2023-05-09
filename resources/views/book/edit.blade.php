@@ -13,6 +13,16 @@
                         autocomplete="off">
                         @csrf
                         <div class="form-group">
+                            <label>Choose Image</label><br>
+                            <input type="file" class="form-control-file" name="image">
+                            <!-- <img src="{{ asset('storage/images/books/' . $book->image) }}" width="50px" height="50px" alt = "book" /> -->
+                            @error('image')
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label>Book Name</label>
                             <input type="text" class="form-control @error('name') isinvalid @enderror"
                                 placeholder="Book Name" name="name" value="{{ $book->name }}" >
