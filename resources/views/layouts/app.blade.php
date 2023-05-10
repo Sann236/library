@@ -108,8 +108,7 @@
                     <a href="{{ route('books') }}"
                         class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Books</a>
                     <a href="{{ route('students') }}"
-                        class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Register
-                        Students</a>
+                        class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Students</a>
                     <a href="{{ route('book_issued') }}"
                         class="list-group-item list-group-item-action bg-transparent second-text fw-bold">Issue Book</a>
                     <a href="{{ route('reports') }}"
