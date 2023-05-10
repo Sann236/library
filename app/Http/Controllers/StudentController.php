@@ -37,8 +37,8 @@ class StudentController extends Controller
         $student->name = $request->name;
         $student->email = $request->email;
         $student->phone = $request->phone;
-        $student->password = $request->password;
-        $student->save();
+        
+        $student->update();
 
         return redirect()->route('students');
     }

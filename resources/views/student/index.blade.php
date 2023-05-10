@@ -20,7 +20,7 @@
                             
                             <th>Phone</th>
                             <th>Email</th>
-                            <th>View</th>
+                            
                             <th>Edit</th>
                             <th>Delete</th>
                         </thead>
@@ -32,12 +32,9 @@
                                     
                                     <td>{{ $student->phone }}</td>
                                     <td>{{ $student->email }}</td>
-                                    <td class="view">
-                                        <button data-sid='{{ $student->id }}>'
-                                            class="btn btn-primary view-btn">View</button>
-                                    </td>
+                                    
                                     <td class="edit">
-                                        <a href="{{ route('student.edit', $student) }}>" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('student.edit', $student) }}" class="btn btn-success">Edit</a>
                                     </td>
                                     <td class="delete">
                                         <form action="{{ route('student.destroy', $student->id) }}" method="post"
@@ -49,7 +46,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7">No Students Found</td>
+                                    <td colspan="6">No Students Found</td>
                                 </tr>
                             @endforelse
                         </tbody>

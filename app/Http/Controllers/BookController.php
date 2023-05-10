@@ -78,9 +78,10 @@ class BookController extends Controller
         $book->publisher_id = $request->publisher_id;
 
         if ( $request->hasFile("image")) {
-            Storage::delete("public/images/books".$book->image);
+            Storage::delete("public/images/books/".$book->image);
 
-            $newName = uniqid()."_product.".$request->file("image")->extension();
+            // $newName = uniqid()."_book.".$request->file("image")->extension();
+            $newName = $request->file('image')->getClientOriginalName();
 
             $request->file("image")->storeAs("public/images/books", $newName);
 

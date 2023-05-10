@@ -10,11 +10,11 @@
             <div class="row">
                 <div class="offset-md-3 col-md-6">
                     <form class="yourform" action="{{ route('book.update', $book->id) }}" method="post"
-                        autocomplete="off">
+                        autocomplete="off" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label>Choose Image</label><br>
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="file" name="image">
                             <!-- <img src="{{ asset('storage/images/books/' . $book->image) }}" width="50px" height="50px" alt = "book" /> -->
                             @error('image')
                                 <div class="alert alert-danger" role="alert">
@@ -53,17 +53,17 @@
                         </div>
                         <div class="form-group">
                             <label>Author</label>
-                            <select class="form-control @error('auther_id') isinvalid @enderror " name="author_id">
+                            <select class="form-control @error('author_id') isinvalid @enderror " name="author_id">
                                 <option value="">Select Author</option>
-                                @foreach ($authors as $auther)
-                                    @if ($auther->id == $book->auther_id)
-                                        <option value="{{ $auther->id }}" selected>{{ $auther->name }}</option>
+                                @foreach ($authors as $author)
+                                    @if ($author->id == $book->author_id)
+                                        <option value="{{ $author->id }}" selected>{{ $author->name }}</option>
                                     @else
-                                        <option value="{{ $auther->id }}">{{ $auther->name }}</option>
+                                        <option value="{{ $author->id }}">{{ $author->name }}</option>
                                     @endif
                                 @endforeach
                             </select>
-                            @error('auther_id')
+                            @error('author_id')
                                 <div class="alert alert-danger" role="alert">
                                     {{ $message }}
                                 </div>

@@ -25,7 +25,7 @@ class UpdateStudentRequest extends FormRequest
             'name' => "required",
             'email' => "required|email",
             'phone' => "required",
-            'password' => "required"
+            
         ];
     }
 }
